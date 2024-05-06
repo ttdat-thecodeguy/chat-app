@@ -21,10 +21,22 @@
 }
 
 .px-24px {
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
+.pt-24px {
+    padding-top: 24px;
+}
+.pr-24px {
+    padding-right: 24px;
+}
+.pl-24px {
+    padding-left: 24px;
+}
+.pb-24px {
+    padding-bottom: 24px;
+}
 .p-24px {
     padding: 24px;
 }
