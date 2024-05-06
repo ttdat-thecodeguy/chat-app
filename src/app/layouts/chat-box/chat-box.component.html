@@ -9,58 +9,30 @@
     </div>
     <div class="box relative">
         <div class="chat-content p-16px">
-            <div class="flex mb-5">
-                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg mr-2"></div>
-                <div class="messages">
-                    <app-message-item [isYours]="false"></app-message-item>
-                    <app-message-item [isYours]="false"></app-message-item>
-                    <app-message-item [isYours]="false"></app-message-item>
-                    <app-message-item [isYours]="false"></app-message-item>
-                    <app-message-item [isYours]="false"></app-message-item>
+            <ng-container *ngFor="let log of combine_chat">
+                <div class="flex mb-5" *ngIf="log.user === activeUser">
+                    <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg mr-2"></div>
+                    <div class="messages">  
+                        <app-message-item *ngFor="let message of log.message" [isYours]="true" [text]="message"></app-message-item>
+                    </div>
                 </div>
-            </div>
-            <div class="flex justify-end">
-                <div class="messages">
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
+                <div class="flex justify-end" *ngIf="log.user !== activeUser">
+                    <div class="messages">
+                        <app-message-item *ngFor="let message of log.message" [isYours]="false" [text]="message"></app-message-item>                    
+                    </div>
+                    <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
                 </div>
-                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
-            </div>
-            <div class="flex justify-end">
-                <div class="messages">
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                </div>
-                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
-            </div>
-            <div class="flex justify-end">
-                <div class="messages">
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                    <app-message-item [isYours]="true"></app-message-item>
-                </div>
-                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
-            </div>
+            </ng-container>
         </div>
-        
-        <div class="chat sticky bottom-0 bg-white w-full h-20 p-24px flex items-center">
+        <div class="chat sticky bottom-0 bg-white h-20 p-24px flex items-center">
             <img src="assets/icons/attach.svg" class="mx-2" alt="">
             <input type="text" id="last_name" class="
                     bg-gray-50 border w-full 
                     border-gray-300 
                     text-gray-900 text-sm 
                     rounded-lg
-                    px-2 py-4" placeholder="Type a message" required />
+                    px-5 py-4" placeholder="Type a message" required />
             <img src="assets/icons/send.svg" class="right-10 absolute" alt="">
         </div>
     </div>
-
 </div>

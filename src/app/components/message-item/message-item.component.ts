@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 })  
 export class MessageItemComponent {
   @Input({required : true}) isYours!: boolean;
+  @Input() text: String = "Hello";
 }
