@@ -1,1 +1,66 @@
-<p>chat-box works!</p>
+<div class="border border-gray-200 h-screen w-full scroll-smooth overflow-y-scroll relative">
+    <div class="header flex border-b-2 border-gray-200 p-24px sticky top-0 bg-white z-50">
+        <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg mr-2"></div>
+        <div class="user-info">
+            <h1 class="font-bold">Full Name Here</h1>
+            <div style="width: 10px; height: 10px;" class="rounded-full inline-block bg-green-400 mr-2"></div>
+            <span>Online</span>
+        </div>
+    </div>
+    <div class="box p-24px relative">
+        <div class="chat-content">
+            <div class="flex mb-5">
+                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg mr-2"></div>
+                <div class="messages">
+                    <app-message-item [isYours]="false"></app-message-item>
+                    <app-message-item [isYours]="false"></app-message-item>
+                    <app-message-item [isYours]="false"></app-message-item>
+                    <app-message-item [isYours]="false"></app-message-item>
+                    <app-message-item [isYours]="false"></app-message-item>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <div class="messages">
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                </div>
+                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
+            </div>
+            <div class="flex justify-end">
+                <div class="messages">
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                </div>
+                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
+            </div>
+            <div class="flex justify-end">
+                <div class="messages">
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                    <app-message-item [isYours]="true"></app-message-item>
+                </div>
+                <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
+            </div>
+        </div>
+        
+        <div class="chat sticky bottom-0 bg-white w-full h-20 py-24px flex items-center">
+            <img src="assets/icons/attach.svg" class="mx-2" alt="">
+            <input type="text" id="last_name" class="
+                    bg-gray-50 border w-full 
+                    border-gray-300 
+                    text-gray-900 text-sm 
+                    rounded-lg
+                    px-2 py-4" placeholder="Type a message" required />
+            <img src="assets/icons/send.svg" class="right-5 absolute" alt="">
+        </div>
+    </div>
+
+</div>

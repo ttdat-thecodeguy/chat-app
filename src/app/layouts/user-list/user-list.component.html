@@ -1,13 +1,20 @@
-<div>
-    <div class="header">
-        <div class="flex items-center">
-            <h1 class="font-bold mr-1">Messages</h1>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <span class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">12</span>
-        </div>
+<div class="border border-gray-100  h-screen">
+    <div class="header border-b-2 border-gray-100 flex items-center p-24px">
+            <div class="columns-1 w-1/2 flex items-center">
+                <h1 class="font-bold mr-1">Messages</h1>
+                <span><img src="assets/icons/ceret-down.svg" alt=""></span>
+                <span class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 ml-2">12</span>
+            </div>
+            <div class="columns-2 w-1/2 flex justify-end mr-4">
+                <button>
+                    <img src="assets/icons/add-user-icon.svg" alt="">
+                </button>
+            </div>
     </div>
-    <app-user-item></app-user-item>
-    <app-user-item></app-user-item>
-    <app-user-item></app-user-item>
-    <app-user-item></app-user-item>
+    <div class="user-list">
+        <app-user-item></app-user-item>
+        <app-user-item></app-user-item>
+        <app-user-item></app-user-item>
+        <app-user-item></app-user-item>
+    </div>
 </div>

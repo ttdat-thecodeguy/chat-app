@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-message-item',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './message-item.component.html',
   styleUrl: './message-item.component.scss'
-})
+})  
 export class MessageItemComponent {
-
+  @Input({required : true}) isYours!: boolean;
 }
