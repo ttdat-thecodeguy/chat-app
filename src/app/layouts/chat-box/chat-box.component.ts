@@ -1,21 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageItemComponent } from '../../components/message-item/message-item.component';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chat-box',
   standalone: true,
   imports: [
     CommonModule,
-    MessageItemComponent
+    MessageItemComponent,
+    ButtonModule,
+    FormsModule
   ],
   templateUrl: './chat-box.component.html',
   styleUrl: './chat-box.component.scss'
 })
 export class ChatBoxComponent implements OnInit{
- 
+  chat() {
+    // let lastest = this.combine_chat[this.combine_chat.length - 1];
+
+    // if (this.currentUser === lastest.user) {
+    //   let value = lastest.message;
+    //   val
+    // } 
+  }
+  
   currentUser = "abc";
   activeUser = "abc";
+  message = "";
+
+
   public chat_logs : any = [
     {
       user: "abc",
@@ -52,59 +67,39 @@ export class ChatBoxComponent implements OnInit{
     {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
+    },
+    {
       user: "abc",
       message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    },    {
-      user: "abc",
-      message: "Fine, Thanks"
-    }, 
-
+    }
   ]
 
   public combine_chat : any = [];
