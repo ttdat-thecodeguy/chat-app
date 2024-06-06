@@ -1,0 +1,5 @@
+<div class="message-item rounded-full m-2 py-2 px-4 w-fit" [class]="isYours 
+                                        ? 'bg-blue-600' 
+                                        : 'bg-gray-200'">
+    <span [classList]="isYours ? 'text-white' : 'text-black'">{{text}}</span>
+</div>
