@@ -18,6 +18,7 @@ import { MessageItem } from '../../domains/message.domain';
   styleUrl: './chat-box.component.scss'
 })
 export class ChatBoxComponent implements OnInit {
+
   stopChat() {
     this.isChatting = false
   }
@@ -28,6 +29,10 @@ export class ChatBoxComponent implements OnInit {
   last_conversation_updated_at = "2024-03-31T02:04:09";
   isChatting = false;
   public chat_logs : MessageItem[] = [];
+
+  selectedFile: File | null = null; // Add this line to store the selected file
+
+
   constructor() {
     this.chatDebounce.pipe( debounceTime(500) ).subscribe( _ => this.chatting() )
   }
@@ -42,6 +47,26 @@ export class ChatBoxComponent implements OnInit {
     }, 1000);
   }
 
+  openFile() {
+    console.log(
+      "Open file dialog",
+      this.selectedFile
+    )
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    // Trigger the file selection dialog
+    input.click();
+
+    // Handle file selection
+    input.addEventListener('change', (event) => {
+      const fileInput = event.target as HTMLInputElement;
+      this.selectedFile = fileInput.files ? fileInput.files[0] : null;
+      // You can now access the selected file using this.selectedFile
+      console.log("Selected file:", this.selectedFile);
+    });
+  }
+  
   sendChat(user: string) {
     if (this.message === "") return;
     let lastUpdated = new Date(this.last_conversation_updated_at);

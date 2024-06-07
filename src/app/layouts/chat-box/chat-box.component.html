@@ -1,6 +1,6 @@
-<div class="border border-gray-200 h-screen w-full scroll-smooth overflow-y-scroll relative">
-    <div class="header flex border-b-2 border-gray-200 p-24px sticky top-0 bg-white z-50">
-        <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg mr-2"></div>
+<div class="header-container">
+    <div class="header-container__box p-24px">
+        <div style="width: 50px; height: 50px;" class="sp-avatar mr-2"></div>
         <div class="user-info">
             <h1 class="font-bold">Full Name Here</h1>
             <div style="width: 10px; height: 10px;" class="rounded-full inline-block bg-green-400 mr-2"></div>
@@ -11,7 +11,7 @@
         <div class="chat-content h-full p-16px">
             <ng-container *ngFor="let log of combine_chat">
                 <div class="flex mb-5" *ngIf="log.user === activeUser">
-                    <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg mr-2"></div>
+                    <div style="width: 50px; height: 50px;" class="sp-avatar mr-2"></div>
                     <div class="messages">  
                         <app-message-item *ngFor="let message of log.message" [isYours]="true" [text]="message"></app-message-item>
                     </div>
@@ -20,23 +20,31 @@
                     <div class="messages flex items-end	flex-col">
                         <app-message-item *ngFor="let message of log.message" [isYours]="false" [text]="message"></app-message-item>                    
                     </div>
-                    <div style="width: 50px; height: 50px;" class="bg-gray-200 rounded-lg ml-2"></div>
+                    <div style="width: 50px; height: 50px;" class="sp-avatar ml-2"></div>
                 </div>
             </ng-container>
 
         </div>
-        <div (input)="chat()" (keyup.enter)="sendChat(currentUser)" class="chat sticky bottom-0 bg-white h-20 p-24px flex items-center">
-            <img src="assets/icons/attach.svg" class="mx-2" alt="">
-            <input [(ngModel)]="message" type="text" id="last_name" class="
-                    bg-gray-50 border w-full 
-                    border-gray-300 
-                    text-gray-900 text-sm 
-                    rounded-lg
-                    px-5 py-4" 
-                    placeholder="Type a message" 
-                    required
-                    [(ngModel)]="message" />
-            <img src="assets/icons/send.svg" (click)="sendChat(currentUser)" class="right-10 absolute" alt="">
+        <div (input)="chat()" (keyup.enter)="sendChat(currentUser)" class="chat flex-col p-24px">
+            <div class="bg-gray-100">
+            
+                <img src="assets/sample.jpeg" width="120px" alt="">
+
+                <div class="flex items-center">
+                    <img src="assets/icons/attach.svg" class="mx-2" (click)="openFile()" alt="">
+                    <div class="chat--input">
+                        <input [(ngModel)]="message" type="text" id="last_name" class="
+                        w-full
+                        px-5 py-4" 
+                        placeholder="Type a message" 
+                        required
+                        [(ngModel)]="message" />
+                    </div>
+                    <img src="assets/icons/send.svg" (click)="sendChat(currentUser)" class="right-10 absolute" alt="">
+                </div>
+                
+            </div>
+
         </div>
     </div>
 </div>
