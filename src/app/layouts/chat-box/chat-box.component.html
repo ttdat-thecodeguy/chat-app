@@ -5,6 +5,8 @@
             <h1 class="font-bold">Full Name Here</h1>
             <div style="width: 10px; height: 10px;" class="rounded-full inline-block bg-green-400 mr-2"></div>
             <span>{{ isChatting ? 'Chatting...' : 'Online' }}</span>
+            <p-button label="Login" (onClick)="openLogin()" ></p-button>
+            <a routerLink="/login">Login</a>
         </div>
     </div>
     <div class="box relative" style="height: calc(100% - 180px);">

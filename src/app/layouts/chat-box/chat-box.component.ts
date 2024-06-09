@@ -4,7 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { Subject, debounceTime } from 'rxjs';
+import { Router, RouterModule } from '@angular/router'; // Import Router
+
+
 import { MessageItem } from '../../domains/message.domain';
+
+
 @Component({
   selector: 'app-chat-box',
   standalone: true,
@@ -12,7 +17,8 @@ import { MessageItem } from '../../domains/message.domain';
     CommonModule,
     MessageItemComponent,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   templateUrl: './chat-box.component.html',
   styleUrl: './chat-box.component.scss'
@@ -32,8 +38,11 @@ export class ChatBoxComponent implements OnInit {
 
   selectedFile: File | null = null; // Add this line to store the selected file
 
-
-  constructor() {
+  openLogin() {
+    this.router.navigate(['/login']); // Assuming you have a route defined for '/login'
+  }
+  
+  constructor(private router : Router) {
     this.chatDebounce.pipe( debounceTime(500) ).subscribe( _ => this.chatting() )
   }
 
@@ -108,6 +117,10 @@ export class ChatBoxComponent implements OnInit {
       }
       this.combine_chat.push(cObjectUser);
     }
-    this.last_conversation_updated_at = this.combine_chat[this.combine_chat.length - 1].updated_at;
+    if (this.combine_chat.length > 0) {
+      this.last_conversation_updated_at = this.combine_chat[this.combine_chat.length - 1].updated_at;
+    } else {
+      this.last_conversation_updated_at = new Date().toISOString();
+    }
   }
 }
