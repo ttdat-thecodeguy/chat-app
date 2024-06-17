@@ -6,9 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { Subject, debounceTime } from 'rxjs';
 import { Router, RouterModule } from '@angular/router'; // Import Router
 
-
 import { MessageItem } from '../../domains/message.domain';
-
+import * as Stomp from 'stompjs';
+import SockJS from 'sockjs-client';
 
 @Component({
   selector: 'app-chat-box',
@@ -55,6 +55,17 @@ export class ChatBoxComponent implements OnInit {
       this.isChatting = false;
     }, 1000);
   }
+  stompClient: any;
+  _connect() {
+    let socket = new SockJS(`http://localhost:8080/ws`);
+    this.stompClient = Stomp.over(socket);
+    const _this = this;
+    _this.stompClient.debug = null;
+    _this.stompClient.connect({}, function () {
+      console.log('Connected: ' + _this.stompClient.connected);
+      
+    });
+  }
 
   openFile() {
     console.log(
@@ -63,10 +74,8 @@ export class ChatBoxComponent implements OnInit {
     )
     const input = document.createElement('input');
     input.type = 'file';
-
     // Trigger the file selection dialog
     input.click();
-
     // Handle file selection
     input.addEventListener('change', (event) => {
       const fileInput = event.target as HTMLInputElement;
