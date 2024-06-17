@@ -63,7 +63,6 @@ export class ChatBoxComponent implements OnInit {
     _this.stompClient.debug = null;
     _this.stompClient.connect({}, function () {
       console.log('Connected: ' + _this.stompClient.connected);
-      
     });
   }
 
