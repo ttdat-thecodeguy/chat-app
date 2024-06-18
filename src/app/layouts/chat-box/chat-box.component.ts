@@ -35,9 +35,7 @@ export class ChatBoxComponent implements OnInit {
   last_conversation_updated_at = "2024-03-31T02:04:09";
   isChatting = false;
   public chat_logs : MessageItem[] = [];
-
   selectedFile: File | null = null; // Add this line to store the selected file
-
   openLogin() {
     this.router.navigate(['/login']); // Assuming you have a route defined for '/login'
   }
@@ -90,7 +88,14 @@ export class ChatBoxComponent implements OnInit {
     let now = new Date();
     let diffMinute = (now.getTime() - lastUpdated.getTime()) / (1000 * 60);
     if (diffMinute <= 5) {
-      this.combine_chat[this.combine_chat.length - 1].message = [...this.combine_chat[this.combine_chat.length - 1].message, this.message]
+      if (this.combine_chat[0] === undefined) {
+        this.combine_chat[0] = {
+          user,
+          message: [this.message]
+        };
+      } else {
+        this.combine_chat[this.combine_chat.length - 1].message = [...(this.combine_chat[this.combine_chat.length - 1] ? this.combine_chat[this.combine_chat.length - 1].message : []), this.message]
+      }
     }
     else {
       this.combine_chat.push({
@@ -98,15 +103,14 @@ export class ChatBoxComponent implements OnInit {
         message: [this.message]
       });
     }
-    this.message = "";
+    // this.message = "";
     this.last_conversation_updated_at = new Date().toISOString();
   } 
   
   chat() {
     this.chatDebounce.next()
   }
-  public combine_chat : any = [];
-
+  public combine_chat : any = []; 
   ngOnInit(): void {
     for (let i = 0; i < this.chat_logs.length; i++) {
       let currMessage = [this.chat_logs[i].message];

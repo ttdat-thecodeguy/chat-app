@@ -1,1 +1,55 @@
-<p>register works!</p>
+<!-- https://www.figma.com/design/3OQwiJ13e2JWdQ9uiTcrzf/Login-Page-Web-UI-Design-(Community)?node-id=3-2&t=AHSFjVLcT2ORufAp-0 -->
+<div class="flex justify-between">
+    <div
+      style="
+        padding-top: 60px;
+        padding-left: 60px;
+        padding-right: 60px;
+        max-width: 860px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      "
+    >
+      <h1 class="text-5xl font-bold">Hey,</h1>
+      <h1 class="text-5xl font-bold">Sign Up Now!</h1>
+      <span class="mb-5 mt-5 text-gray-500">Come here to join AppChat Community!</span>
+      <div class="flex-col flex">
+        <label for="email">Email</label>
+        <input pInputText id="email" aria-describedby="email-help" />
+        <small id="username-help">
+          Enter your email here
+        </small>
+      </div>
+      <div class="flex-col flex mb-5">
+        <label for="password">Password</label>
+        <input pInputText id="password" aria-describedby="username-help" />
+        <small id="username-help">
+          Enter your password.
+        </small>
+      </div>
+      <div class="flex-col flex mb-5">
+        <label for="password-rework">Re-check Password</label>
+        <input pInputText id="password" aria-describedby="username-help" />
+        <small id="username-help">
+          Enter your password again to remember your password.
+        </small>
+      </div>
+      <div class="my-2">
+        <p-checkbox
+          label="By signing up, you are creating a AppChat account, and you agree to AppChat Term of Use and Privacy Policy."
+        />
+      </div>
+      <div class="my-2">
+        <p-checkbox label="Remember Me as Member of AppChat Community." />
+      </div>
+      <p-button class="btn-submit" label="Submit" />
+    </div>
+    <div style="width: 100%">
+      <img
+        src="assets/login-bg.jpg"
+        style="height: 100vh; object-fit: cover; width: 100%"
+        alt=""
+        srcset=""
+      />
+    </div>
+  </div>
+  
