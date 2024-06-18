@@ -33,6 +33,15 @@
           Enter your password again to remember your password.
         </small>
       </div>
+      <div class="flex-col flex justify-content-center">
+        <label for="favorites">Favorites</label>
+        <p-multiSelect 
+            [options]="tags" 
+            placeholder="Select Tags" 
+            optionLabel="name" 
+            display="chip" 
+            [showClear]="true" />
+     </div>
       <div class="my-2">
         <p-checkbox
           label="By signing up, you are creating a AppChat account, and you agree to AppChat Term of Use and Privacy Policy."
