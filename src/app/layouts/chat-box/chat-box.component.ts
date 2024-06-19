@@ -8,7 +8,8 @@ import { Router, RouterModule } from '@angular/router'; // Import Router
 
 
 import { MessageItem } from '../../domains/message.domain';
-
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
 
 @Component({
   selector: 'app-chat-box',
@@ -55,6 +56,33 @@ export class ChatBoxComponent implements OnInit {
       this.isChatting = false;
     }, 1000);
   }
+
+
+  // _connect(user: UserResponse, tableId: string) {
+  //   let socket = new SockJS(`${HOST}/ws`);
+  //   this.stompClient = Stomp.over(socket);
+  //   const _this = this;
+  //   // connect
+  //   _this.stompClient.debug = null; // remove or add this line in future
+
+  //   _this.stompClient.connect({}, function () {
+  //     // subscribe
+  //     _this.stompClient.subscribe('/topic/public', function (message: any) {
+  //       _this._onReceivedMessage(message);
+  //     });
+  //     //user register
+  //     _this.stompClient.send(
+  //       '/app/add-user',
+  //       {},
+  //       JSON.stringify({
+  //         sender: user.id,
+  //         messageType: 'JOIN',
+  //         table: tableId,
+  //         spectator: _this.isSpectatorMode
+  //       })
+  //     );
+  //   });
+  // }
 
   openFile() {
     console.log(

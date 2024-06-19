@@ -1,7 +1,8 @@
-export interface UserItem {
+import { TagDTO } from "./tag.domain";
+
+export interface UserDTO {
     image: string | "";
     full_name: string | "";
-    describe : string | "";
-    tags: string[] | [];
-    appeared_at: Date | null;
+    description : string | "";
+    tags: TagDTO[] | [];
 }
